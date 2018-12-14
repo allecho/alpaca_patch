@@ -1,0 +1,30 @@
+--- getevent.c	2018-04-25 06:57:59.114278873 +0800
++++ geteventx86.c	2018-07-28 16:55:47.022369449 +0800
+@@ -1,15 +1,17 @@
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <unistd.h>
+ #include <string.h>
+ #include <stdint.h>
+ #include <dirent.h>
+ #include <fcntl.h>
+ #include <sys/ioctl.h>
+ #include <sys/inotify.h>
+-#include <sys/limits.h>
++//#include <sys/limits.h>
+ #include <sys/poll.h>
+ #include <linux/input.h>
+ #include <errno.h>
++#include <time.h>
+ 
+ #include "getevent.h"
+ 
+@@ -493,7 +495,7 @@
+     fprintf(stderr, "    -r: print rate events are received\n");
+ }
+ 
+-int getevent_main(int argc, char *argv[])
++int main(int argc, char *argv[])
+ {
+     int c;
+     int i;
